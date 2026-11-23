@@ -19,7 +19,7 @@
 | 当前用户的所有项目（Windows） | `%USERPROFILE%\.agents\skills\develop-agent\SKILL.md` |
 | 当前用户的所有项目（macOS / Linux） | `~/.agents/skills/develop-agent/SKILL.md` |
 
-在目标项目打开 Codex，在输入框键入 `$develop-agent` 即可调用。若安装后暂时看不到，重启 Codex。日常使用只需 Codex，自带的离线回归示例另需 Python 3.7 或更新版本。[Codex 官方安装与发现说明](https://developers.openai.com/codex/skills/)
+在目标项目打开 Codex，在输入框键入 `$develop-agent` 即可调用。若安装后暂时看不到，重启 Codex。接续指令提取工具和离线回归示例使用 Python 3.7 或更新版本，均只用标准库。[Codex 官方安装与发现说明](https://developers.openai.com/codex/skills/)
 
 ## 第一次使用
 
@@ -39,6 +39,14 @@
 ```
 
 想先试用现成例子，可以把[员工服务助手示例清单](examples/employee-assistant/docs/agent/plan.md)复制到练习项目的 `docs/agent/plan.md`，再发送第二段请求。清单里的员工、手册和金额均为虚构。
+
+如果清单已经写好了唯一下一步，新对话里说「使用 $develop-agent，接着 docs/agent/plan.md 继续」即可。要看 Codex 将接到哪一步，可以在本仓库根目录运行下面的命令。它只打印示例计划里的接续指令，保留功能范围和停止点。找不到唯一指令时会说明原因，由 Codex 回看清单确定当前项。
+
+```sh
+python skills/develop-agent/scripts/read_handoff.py examples/employee-assistant/docs/agent/plan.md
+```
+
+示例指令里的 `docs/agent/plan.md` 以练习项目文件夹 `examples/employee-assistant/` 为起点，指的就是传给工具的那份计划。
 
 ## 包含的内容
 
