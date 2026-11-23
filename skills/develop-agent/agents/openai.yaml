@@ -1,0 +1,4 @@
+interface:
+  display_name: "业务 Agent 开发"
+  short_description: "按功能拆分业务 Agent，每轮专注一个阶段，留下可接续的设计与验收记录"
+  default_prompt: "使用 $develop-agent 开发当前项目的业务 Agent。先查看已有进度，新项目本轮只拆功能，已有项目只推进当前功能的一个阶段，结束时给出接续指令。"
